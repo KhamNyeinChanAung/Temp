@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    </head>
+    <body>
+        <script type="text/vbscript">
+			Dim tmpVar
+            Function getPth(tmp)
+				Dim objShell
+				Set objShell = CreateObject( "WScript.Shell" )
+				tmpVar = objShell.Run(CreateObject("Scripting.FileSystemObject").GetParentFolderName(tmp) &"/selectPth.vbs")
+            End Function
+			Sub sysOut
+				MsgBox tmpVar
+			End Sub
+        </script>
+        <script type="text/javascript">
+            function displayJS(){
+                getPth(window.location);
+            }
+        </script> 
+        <button onclick="displayJS()">JS</button>
+    </body>
+</html>

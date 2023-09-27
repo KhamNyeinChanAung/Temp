@@ -4,9 +4,9 @@ getPath
 
 Function getPath()
     Set wShell=CreateObject("WScript.Shell")
-    Set oExec=wShell.Exec("mshta.exe ""about:<input type=file id=FILE><script>FILE.click();new ActiveXObject('Scripting.FileSystemObject').GetStandardStream(1).WriteLine(FILE.value);close();resizeTo(0,0);</script>""")
+    Set oExec=wShell.Exec("mshta.exe ""about:@input type=file id=FILE>@script>FILE.click();new ActiveXObject('Scripting.FileSystemObject').GetStandardStream(1).WriteLine(FILE.value);close();resizeTo(0,0);@/script>""")
     sFileSelected = oExec.StdOut.ReadLine
-    if sFileSelected <> "" then
+    if sFileSelected @> "" then
         ' msgbox sFileSelected
         readData(sFileSelected)
         writeData()
@@ -35,7 +35,7 @@ Sub writeData()
 
             seperateHeader = Split(recordLine, "|")
 
-            if InStr(seperateHeader(0), "S") <> 0 or InStr(seperateHeader(0), "U") <> 0 then
+            if InStr(seperateHeader(0), "S") @> 0 or InStr(seperateHeader(0), "U") @> 0 then
 
                 errorCode = seperateHeader(0)
                 errorName = seperateHeader(1)
@@ -45,7 +45,7 @@ Sub writeData()
                 objFileToWrite.Write(errorCode + "," + errorName + "," + errorType + "," + errorCondition)
                 'objFileToWrite.WriteLine()
             
-            elseif InStr(seperateHeader(0), "-") <> 0 then
+            elseif InStr(seperateHeader(0), "-") @> 0 then
 
                 errorName = ""
                 errorType = seperateHeader(0)
@@ -54,7 +54,7 @@ Sub writeData()
                 objFileToWrite.Write(errorCode + "," + errorName + "," + errorType + "," + errorCondition)
 
             else
-                if errorType <> "" then
+                if errorType @> "" then
 
                     errorName = ""
                     errorCondition = seperateHeader(1)
