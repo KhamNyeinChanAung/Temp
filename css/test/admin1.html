@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="general.css">
+    <script type="text/javascript">
+
+        function showById(tmp) {
+            tmp.style.display = "inline-block";
+        }
+        function hideById(tmp) {
+            tmp.style.display = "none";
+        }
+
+         window.onload = function () {
+            document.getElementById("ad").style.display = "none";
+            document.getElementById("ed").style.display = "none";
+         }
+
+        function insertFunct() {
+            location.href = "./admin1.html";
+        }
+
+        function updateFunct() {
+            location.href = "./admin2.html";
+        }
+
+    </script>
+    <style>
+        /* td{
+            border: 2px solid black;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="tester">
+
+        <div>
+            <table id="header">
+                <th>
+                <td class="htd"></td>
+                <td class="htd"><a href="home.html">Home</a></td>
+                <td class="htd"><a href="user.html">Search Error</a></td>
+                <td class="htd"><a href="admin.html">Modify Data</a></td>
+                <td class="htd"></td>
+                </th>
+            </table>
+        </div>
+
+        <div class="sidenav">
+            <table class="admn_menu">
+                <tr>
+                    <td onclick="insertFunct()" onmouseover="showById(ad)" onmouseout="hideById(ad)">
+                        <a><span id="ad" class="right">&#9710</span>
+                            Add New Data</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td onclick="updateFunct()" onmouseover="showById(ed)" onmouseout="hideById(ed)">
+                        <a><span id="ed" class="right">&#9710</span>
+                            Edit Existing Data</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="main">
+
+
+            <div id="insert">
+                <form method="get">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="text-align: right;">Error Code:&nbsp;</td>
+                            <td>
+                                <input
+                                    style=" margin-top: 1%;margin-left: 2%; border-radius: 4px; border-color: black; line-height: 30px;width: 95%;font-family: 'Courier New', Courier, monospace;"
+                                    type="text">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: right;">Type:&nbsp;</td>
+                            <td>
+                                <input
+                                    style=" margin-top: 1%;margin-left: 2%; border-radius: 4px; border-color: black; line-height: 30px;width: 95%;font-family: 'Courier New', Courier, monospace;"
+                                    type="text">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: right;">Condition:&nbsp;</td>
+                            <td><input
+                                    style=" margin-top: 1%;margin-left: 2%; border-radius: 4px; border-color: black; line-height: 30px;width: 95%;font-family: 'Courier New', Courier, monospace;"
+                                    type="text">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: right;vertical-align: top;">Solution:&nbsp;</td>
+                            <td><textarea rows="10"
+                                    style=" margin-top: 1%;margin-left: 2%; border-radius: 4px; border: 2px solid black; line-height: 20px;width: 95%;overflow:auto;"></textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td style="float: right; padding-top: 1%;padding-right: 5%;"><a href="#"
+                                    class="button green_btn">Add</a></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <!-- <div id="update">
+                <form action="#">
+                    <table width=100%>
+                        <tr>
+                            <td width=50%>
+                                <input
+                                    style=" margin-top: 1%; border: 3px solid black; width: 100%;font-family: 'Courier New', Courier, monospace;"
+                                    type="text" placeholder="&#128269 Enter Error Code">
+                            </td>
+                            <td width=50%>
+                                <input
+                                    style=" margin-top: 1%; border: 3px solid black; width: 100%;font-family: 'Courier New', Courier, monospace;"
+                                    type="text" placeholder="&#128269 Enter Condition Code">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table width=100%>
+                                    <td width=20%></td>
+                                    <td width=20% style="text-align: center;"><a href="#"
+                                            class="button blue_btn">Search</a>
+                                    </td>
+                                    <td width=20% style="text-align: center;"><a onclick="blurTest(tester)"
+                                            class="button grey_btn">Show All</a></td>
+                                    <td width=20% style="text-align: center;"><a onclick=updateRfrsh()
+                                            class="button red_btn">Clear</a>
+                                    </td>
+                                    <td width=20%></td>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div> -->
+
+            <!-- <div id="instructions">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div> -->
+
+            
+        </div>
+    </div>
+</body>
+
+</html>

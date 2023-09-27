@@ -1,0 +1,135 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+.sidenav {
+    height: 100%;
+    width: 40%;
+    position: fixed;
+    /* z-index:2; */
+    left: 0;
+    background-color: #d0e0d8;
+    overflow-x: auto;
+    padding-top: 30px;
+    margin-top: 2%;
+}
+
+.sidenav div {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #c7e0d3;
+    display: block;
+}
+
+.main {
+    /* z-index:1; */
+    padding-top: 6%;
+    /* padding-top: 15px; */
+    margin-left: 40%;
+    /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 420px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+}
+
+#btn_format {
+    display: flex;
+    flex-wrap: wrap;
+}
+#header {
+    background-color:  rgb(44, 66, 104);/*rgb(29, 51, 88);#1778d3;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    display: block;
+}
+
+.solu div:hover {
+    border: 2px dashed;
+}
+
+.htd {
+    width: 20%;
+}
+
+.htd a {
+    display: block;
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    text-decoration: none;
+    /* background-color: rgb(84, 96, 116);rgb(44, 66, 104); */
+}
+
+.htd a:hover {
+    background-color: rgb(29, 51, 88);/*rgb(68, 122, 167);/*#053663;*/
+}
+
+/* body {
+    filter: blur(1.5px);
+} */
+
+/* #tester {
+    display: block;
+    filter: blur(1.5px); 
+} */
+.blue_btn{
+    border: 3px solid;
+    background-color: rgb(104, 186, 253);
+    border-color:rgb(0, 45, 112);
+}
+.red_btn{
+    border: 3px solid;
+    background-color: rgb(197, 86, 86);
+    border-color:rgb(88, 0, 0);
+}
+.green_btn{
+    border: 3px solid;
+    background-color:rgb(72, 206, 72); 
+    border-color:rgb(36, 65, 20);
+}
+.grey_btn{
+    border: 3px solid;
+    background-color:rgb(165,162,162); 
+    border-color:rgb(0, 0, 0);
+}
+.button {
+  border-radius: 12px;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.right{
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    display: inline-block;
+}
+.admn_menu a{
+    font-size: larger;
+    color: rgb(44, 66, 104);
+    font-weight: bold;
+}
+.admn_menu {
+    width: 100%;
+}
+.admn_menu td{
+    padding: 2.5% 2% 2.5%;
+}
+
+.admn_menu td:hover{
+    /* border: 2px solid black; */
+    /* border-radius: 12px; */
+}

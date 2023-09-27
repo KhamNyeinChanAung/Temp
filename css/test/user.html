@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" href="general.css">
+</head>
+
+<body>
+    <script type="text/vbscript">
+        Function getFromDB(tmp)
+
+
+            Dim tmpStr,indx, tmpRec
+            Dim strAry()
+            Set fso=createobject("Scripting.FileSystemObject")
+            tmpStr = fso.GetParentFolderName(tmp) & "/ErrorCode.txt"
+            tmpstr = right(tmpStr,len(tmpStr)-8)
+            tmpstr = replace(tmpStr,"%20"," ")
+            tmpstr = replace(tmpStr,"%25","%")
+                Set qfile=fso.OpenTextFile(tmpstr,1,True)
+                indx=0
+                Do while qfile.AtEndOfStream <> true
+                    ReDim Preserve strAry(indx)
+                    strAry(indx) = qfile.ReadLine
+                    indx = indx + 1
+                Loop
+                qfile.Close
+
+                getFromDB=strAry
+
+                Set qfile=nothing
+                Set fso=nothing
+
+        End Function
+    </script>
+
+    <div>
+        <table id="header">
+            <th>
+            <td class="htd"></td>
+            <td class="htd"><a href="home.html">Home</a></td>
+            <td class="htd"><a href="user.html">Search Error</a></td>
+            <td class="htd"><a href="admin.html">Modify Data</a></td>
+            <td class="htd"></td>
+            </th>
+        </table>
+    </div>
+
+    <div class="sidenav">
+        <table align="center" width=100% >
+            <tr>
+                <td>
+                    <input style=" margin-top: 1%;margin-left: 2%; border-radius: 4px; border-color: black; width: 80%;font-family: 'Courier New', Courier, monospace;" type="text"
+                        placeholder="&#128269 Enter Error Code">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input style=" margin-top: 1%;margin-left: 2%; border-radius: 4px; border-color: black;width: 80%;font-family: 'Courier New', Courier, monospace;" type="text"
+                        placeholder="&#128269 Enter Condition Code">
+                </td>
+            </tr>
+            <tr id="btn_format">
+                <td style="padding-top: 1%;padding-left: 5%;"><a style=" margin-top: 1%;margin-left: 2%;" href="#" class="button blue_btn">Search</a></td>
+                <td style="padding-top: 1%;padding-left: 2%;"><a style=" margin-top: 1%;margin-left: 5%;" onclick=location.reload(); class="button red_btn">Clear</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="main">
+        <div class="solu">
+
+            <script type="text/javascript">
+
+                    var tmp=(new VBArray(getFromDB(window.location))).toArray();
+                    for (rows = 0; rows < tmp.length; rows++) {
+                        var tmpData = tmp[rows].split(",");
+                        
+                        document.write(" <div> ")
+                        document.write("<h3>" + tmpData[0].trim() + "</h3>")
+                        if(tmpData[1].trim() != ""){
+                            document.write("<h3>" + tmpData[1].trim() + "</h3>")
+                        }
+                        if(tmpData[2].trim() != "" && tmpData[3].trim() != ""){
+                            document.write("<h3>[" + tmpData[2].trim() + "]" + tmpData[3].trim() + "</h3>")
+                        }
+                        document.write("<p>出力用 Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>")
+                        document.write(" </div> ")
+                        document.write(" <hr> ")
+                    }
+
+            </script>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
